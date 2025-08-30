@@ -1,0 +1,516 @@
+/* Custom styles for AniCore */
+
+/* Root variables */
+:root {
+  --primary-color: #6366f1;
+  --secondary-color: #4f46e5;
+  --accent-color: #818cf8;
+  --dark-color: #2a2b38;
+  --light-color: #f9fafb;
+  --success-color: #22c55e;
+  --warning-color: #f59e0b;
+  --danger-color: #ef4444;
+  --info-color: #3b82f6;
+  --text-color: #374151;
+  --body-bg: #f3f4f6;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --nav-height: 64px;
+  --border-radius: 0.375rem;
+  --transition-speed: 0.3s;
+}
+
+/* Body and general styles */
+body {
+  background-color: var(--body-bg);
+  color: var(--text-color);
+  font-family: "Roboto", "Segoe UI", sans-serif;
+  padding-top: 0;
+  margin-top: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar styling */
+.navbar {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  min-height: auto;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0;
+}
+
+/* Animation for navbar brand */
+.navbar-brand {
+  position: relative;
+  font-weight: bold;
+  transition: var(--transition-speed);
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+/* Card styles */
+.anime-card {
+  height: 100%;
+  transition: transform var(--transition-speed) ease,
+    box-shadow var(--transition-speed) ease;
+  position: relative; /* Ensure proper positioning context for dropdowns */
+  border: none;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+}
+
+.anime-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+  height: 300px;
+  object-fit: cover;
+}
+
+.anime-banner {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0.25rem;
+}
+
+/* Status badges */
+.status-badge {
+  font-size: 0.8rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.status-Watching {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.status-Completed {
+  background-color: #28a745;
+  color: white;
+}
+
+.status-On-Hold {
+  background-color: #ffc107;
+  color: #343a40;
+}
+
+.status-Dropped {
+  background-color: #dc3545;
+  color: white;
+}
+
+.status-Plan-to-Watch {
+  background-color: #6c757d;
+  color: white;
+}
+
+/* Form enhancements */
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(99, 102, 241, 0.25);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+/* Card title styling */
+.card-title {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Footer styling */
+.footer {
+  margin-top: auto;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Profile section styles */
+.avatar-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  border: 3px solid var(--light-color);
+}
+
+.avatar-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 0.25rem 0;
+  font-size: 0.75rem;
+  text-align: center;
+  opacity: 0;
+  transition: opacity var(--transition-speed);
+}
+
+.avatar-container:hover .avatar-overlay {
+  opacity: 1;
+}
+
+/* Anime details page */
+.anime-detail-header {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  margin-bottom: 2rem;
+}
+
+.anime-detail-header img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(5px);
+  transform: scale(1.1);
+}
+
+.anime-detail-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+.anime-poster {
+  width: 180px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Loading spinners */
+.loading-spinner {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border: 0.25rem solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: var(--primary-color);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Custom checkboxes */
+.custom-checkbox {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  user-select: none;
+}
+
+.custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 4px;
+}
+
+.custom-checkbox:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.custom-checkbox input:checked ~ .checkmark {
+  background-color: var(--primary-color);
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.custom-checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.custom-checkbox .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 7px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+/* Toast notifications */
+.toast-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1050;
+}
+
+.status-Dropped {
+  background-color: #dc3545;
+  color: white;
+}
+
+.status-Plan-to-Watch {
+  background-color: #6c757d;
+  color: white;
+}
+
+/* Rating stars */
+.rating {
+  color: #ffc107;
+}
+
+/* Progress bar */
+.progress {
+  height: 10px;
+}
+
+/* Dropdown improvements */
+.dropdown-menu {
+  position: absolute !important;
+  z-index: 1060 !important; /* Higher z-index to appear above all other elements */
+  min-width: 10rem;
+  padding: 0.5rem 0;
+  margin: 0;
+  font-size: 1rem;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
+  max-height: none !important; /* No height restrictions */
+  overflow: visible !important; /* Always allow overflow */
+  display: none; /* Hidden by default */
+  transform: none !important; /* Prevent Bootstrap transforms that might affect stacking context */
+}
+
+/* Ensure dropdown is visible when shown */
+.dropdown-menu.show {
+  display: block !important;
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+/* Style dropdown padding */
+.dropdown-menu.p-3 {
+  padding: 1rem !important;
+}
+
+/* Style dropdown toggle button */
+.dropdown-toggle.btn-sm::after {
+  margin-left: 0.4em;
+  vertical-align: middle;
+}
+
+/* Fix for dropdown positioning */
+.dropdown {
+  position: relative !important;
+  display: block; /* Ensure proper display mode */
+  width: 100%; /* Full width of parent container */
+  z-index: 1050 !important; /* Establish proper stacking context */
+}
+
+/* Animation for dropdown appearance */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Card footer specific rules */
+.card-footer {
+  position: relative;
+  z-index: 1040; /* Lower than dropdown-menu but higher than cards */
+}
+
+/* Special styles for card-footer dropdowns */
+.card-footer .dropdown-menu {
+  position: fixed !important; /* Use fixed to break out of stacking contexts */
+  inset: auto !important;
+  transform: none !important;
+  width: 100%; /* Match the width of the parent */
+  min-width: 250px; /* Minimum width */
+  max-width: 100%; /* Don't exceed card width */
+  margin-top: 0.5rem; /* Add some space below button */
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175); /* Enhanced shadow */
+  z-index: 9999 !important; /* Very high z-index to appear above everything */
+}
+
+/* Make sure forms inside dropdowns are properly displayed */
+.dropdown-menu form {
+  display: block;
+  width: 100%;
+}
+
+/* Fix specific z-index issues */
+.card {
+  position: relative;
+  z-index: 1; /* Low z-index for cards */
+}
+
+/* Ensure card elements don't create problematic stacking contexts */
+.card-img-top,
+.card-body {
+  position: relative;
+  z-index: 1; /* Same as card */
+}
+
+/* Card footer needs a higher z-index than other card parts */
+.card-footer {
+  position: relative;
+  z-index: 2; /* Slightly higher than other card parts */
+}
+
+/* Cloned dropdowns that are appended to body */
+.cloned-dropdown {
+  position: fixed !important;
+  z-index: 9999 !important;
+  background-color: #fff !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  border-radius: 0.25rem !important;
+  padding: 0.5rem 0 !important;
+  margin: 0 !important;
+  display: block !important;
+  font-size: 1rem !important;
+  color: #212529 !important;
+  text-align: left !important;
+  list-style: none !important;
+  background-clip: padding-box !important;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25) !important;
+  animation: fadeIn 0.2s ease-out forwards !important;
+  max-height: 80vh !important; /* Prevent dropdown from being taller than viewport */
+  overflow-y: auto !important; /* Enable scrolling if needed */
+}
+
+.cloned-dropdown form {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+}
+
+.cloned-dropdown .dropdown-header {
+  display: block;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0;
+  font-size: 0.875rem;
+  color: #6c757d;
+  white-space: nowrap;
+}
+
+/* Enhanced interactive styles for cloned dropdown elements */
+.cloned-dropdown select,
+.cloned-dropdown input,
+.cloned-dropdown button {
+  pointer-events: auto !important; /* Ensure clickable */
+  cursor: pointer !important;
+}
+
+.cloned-dropdown select:focus,
+.cloned-dropdown input:focus {
+  border-color: #86b7fe !important;
+  outline: 0 !important;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25) !important;
+}
+
+.cloned-dropdown button:hover {
+  opacity: 0.9 !important;
+}
+
+/* Active state indicator for cloned dropdowns */
+.cloned-dropdown::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #fff;
+}
+
+/* Form validation styling enhancements */
+.invalid-feedback {
+  color: #dc3545 !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  margin-top: 0.25rem !important;
+  display: block !important;
+}
+
+.is-invalid {
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25) !important;
+}
+
+.is-invalid:focus {
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25) !important;
+}
+
+/* Password validation message styling */
+#password + .invalid-feedback {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  color: #721c24 !important;
+}

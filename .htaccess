@@ -1,0 +1,30 @@
+# Prevent directory listing
+Options -Indexes
+
+# Deny access to .htaccess files
+<Files .htaccess>
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Deny access to database directory
+<FilesMatch "^(.*)\.(sql|bak)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Deny access to config directory
+<FilesMatch "^(config\/.*|database\/.*|includes\/.*)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Allow PHP files
+<FilesMatch "^(.*)\.php$">
+    Order allow,deny
+    Allow from all
+</FilesMatch>
+
+# Comment out the rule that's causing form submissions to fail
+# RewriteEngine On
+# RewriteRule ^actions/([a-zA-Z0-9_]+)\.php$ login.php [R=302,L]
