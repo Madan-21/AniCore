@@ -199,10 +199,6 @@ If you encounter any issues or have questions:
 
 ⭐ If you find this project useful, please consider giving it a star!
 
-## 📸 Screenshots
-
-*Add screenshots of your application here to showcase the interface*
-
 ---
 
 Made with ❤️ for anime fans everywhere
