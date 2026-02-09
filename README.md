@@ -116,10 +116,6 @@ DB_PASS=your_password
 
 Fork the repository and submit pull requests for improvements.
 
-## License
-
-MIT License
-
 ## Author
 
 **Madan Pandey**
